@@ -2,7 +2,9 @@
 
 A web app for a GB energy supplier's day-ahead trading desk. For every hour of January 2026 delivery, it shows **the latest national wind forecast the desk had when it bought power on the day before**, sets it against **what the wind actually generated**, and measures **how far that forecast can be trusted**.
 
-**Live app:** _add your Vercel URL here_
+- **Live app:** https://sdfghj-brown.vercel.app
+- **API docs (interactive):** https://sdfghj-brown.vercel.app/api/docs
+- **Health check:** https://sdfghj-brown.vercel.app/api/health
 
 ![React](https://img.shields.io/badge/frontend-React%20%2B%20TypeScript-0f766e) ![FastAPI](https://img.shields.io/badge/backend-Python%20%2B%20FastAPI-0f766e)
 
@@ -176,7 +178,9 @@ One Vercel project serves both parts from the same domain:
 - `frontend/` is built to static files (`frontend/dist`).
 - `api/index.py` runs the FastAPI app as a Python serverless function; `vercel.json` routes `/api/*` to it and bundles `backend/app` and `backend/data`.
 
-To deploy: import the GitHub repo in Vercel (no settings to change, `vercel.json` covers them), or run `npx vercel --prod` from the repo root.
+The app is deployed at https://sdfghj-brown.vercel.app. Every push to `main` redeploys it automatically.
+
+To deploy your own copy: import the GitHub repo in Vercel (no settings to change, `vercel.json` covers them), or run `npx vercel --prod` from the repo root.
 
 ---
 
