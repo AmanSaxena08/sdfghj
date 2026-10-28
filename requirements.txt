@@ -1,0 +1,3 @@
+# Python packages for the Vercel serverless function (api/index.py).
+# Vercel only reads a requirements.txt at the project root; keep in step with backend/requirements.txt.
+fastapi==0.162.0

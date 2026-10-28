@@ -1,0 +1,16 @@
+# Python
+.venv/
+__pycache__/
+.pytest_cache/
+
+# Node / build output
+node_modules/
+dist/
+
+# Local tooling
+.vercel/
+.env
+.env.*
+.DS_Store
+.vscode/
+.idea/

@@ -1,0 +1,24 @@
+{
+  "fetched_at": "2026-10-28T06:48:56Z",
+  "source": "Elexon BMRS Insights API",
+  "files": {
+    "actuals.csv": {
+      "dataset": "FUELHH (fuelType=WIND)",
+      "settlement_dates": [
+        "2026-01-01",
+        "2026-02-02"
+      ],
+      "rows": 1584,
+      "sha256": "7ff4e0d540b8c9adccd543485110e736548f0119e3594149a1dcf33a708b21ee"
+    },
+    "forecasts.csv": {
+      "dataset": "WINDFOR",
+      "publish_window": [
+        "2025-12-29T00:00:00+00:00",
+        "2026-02-01T00:00:00+00:00"
+      ],
+      "rows": 15775,
+      "sha256": "1e3cff01d304ac4434f847d2cc679e3cf6b2ba9e287e6c3e4f1f105fc9aded9a"
+    }
+  }
+}

@@ -1,0 +1,37 @@
+# Re-downloads the Elexon data every week and commits it only if something changed
+# (for example a revised actual). The new commit triggers a fresh Vercel deployment.
+name: Refresh data
+
+on:
+  schedule:
+    - cron: "0 6 * * 1" # Mondays 06:00 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: backend
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r requirements.txt
+      - name: Fetch and update data files if Elexon's data changed
+        run: python -m scripts.fetch_data
+      - name: Commit changes
+        run: |
+          if git diff --quiet -- data; then
+            echo "Data unchanged."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data
+          git commit -m "Refresh Elexon data"
+          git push
